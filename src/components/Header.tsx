@@ -7,7 +7,11 @@ export default function Header() {
   return (
     <header className="border-b">
       <nav className="container flex h-16 items-center justify-between">
-        <NavLink to="/" className="text-xl font-bold" reloadDocument={isHome}>
+        <NavLink
+          to="/monpics/"
+          className="text-xl font-bold"
+          reloadDocument={isHome}
+        >
           MonPics
         </NavLink>
       </nav>
