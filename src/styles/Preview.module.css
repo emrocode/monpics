@@ -1,0 +1,13 @@
+.preview_container {
+  @apply w-full;
+}
+
+.preview_canvas__container {
+  @apply flex flex-col;
+  & > .preview_canvas {
+    @apply relative max-w-[360px] rounded-md border-4 border-monpics-400;
+    & > .canvas {
+      @apply block h-full w-full rounded-sm;
+    }
+  }
+}

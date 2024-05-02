@@ -1,0 +1,6 @@
+.container {
+  @apply py-8;
+  & > .wrapper {
+    @apply flex flex-row-reverse flex-wrap gap-4 sm:flex-nowrap;
+  }
+}

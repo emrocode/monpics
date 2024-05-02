@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      url("/fonts/open-sans-v40-latin-regular.woff2") format("woff2"),
+      url("/fonts/open-sans-v40-latin-regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 500;
+    src:
+      url("/fonts/open-sans-v40-latin-500.woff2") format("woff2"),
+      url("/fonts/open-sans-v40-latin-500.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    src:
+      url("/fonts/open-sans-v40-latin-600.woff2") format("woff2"),
+      url("/fonts/open-sans-v40-latin-600.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    src:
+      url("/fonts/open-sans-v40-latin-700.woff2") format("woff2"),
+      url("/fonts/open-sans-v40-latin-700.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 800;
+    src:
+      url("/fonts/open-sans-v40-latin-800.woff2") format("woff2"),
+      url("/fonts/open-sans-v40-latin-800.ttf") format("truetype");
+  }
+
+  html,
+  body {
+    @apply min-h-screen bg-monpics-100 text-monpics-500 antialiased;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-[90%] max-w-[768px];
+  }
+}

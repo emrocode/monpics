@@ -1,0 +1,23 @@
+.container {
+  @apply flex flex-col gap-y-6;
+  & > .upload_zone {
+    @apply cursor-default select-none;
+    & > .upload {
+      @apply flex h-36 flex-col items-center justify-center gap-2 rounded-md border border-dashed border-monpics-300 p-4;
+      &.active {
+        @apply border-monpics-500 bg-monpics-200 bg-monpics-300/5;
+      }
+    }
+  }
+}
+
+.input_container > span {
+  @apply text-center text-xs uppercase;
+}
+
+.button {
+  @apply flex items-center gap-x-2 rounded-full bg-monpics-500 px-4 py-2 text-monpics-200 hover:opacity-80;
+  & > span {
+    @apply text-sm uppercase;
+  }
+}

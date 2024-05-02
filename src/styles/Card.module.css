@@ -1,0 +1,18 @@
+.card {
+  @apply flex flex-col overflow-clip rounded-md border border-monpics-300;
+  & > .card_img {
+    @apply relative cursor-pointer hover:opacity-80;
+    & > img {
+      @apply object-scale-down;
+    }
+  }
+}
+
+.card_body {
+  & > .card_par {
+    @apply p-3 text-xs;
+    & > .card_link {
+      @apply text-monpics-500 underline hover:bg-monpics-500/15;
+    }
+  }
+}
