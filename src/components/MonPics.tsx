@@ -31,13 +31,8 @@ export default function MonPics() {
     img.onload = () => {
       const offsetX = 0.5; // Center X
       const offsetY = 0.5; // Center Y
-
-      // Adjust the canvas DPI
-      // to prevent text from appearing multiplied or blurred
-      // on PNG images
-      const dpi = window.devicePixelRatio;
-      const canvasWidth = (canvas.width *= dpi);
-      const canvasHeight = (canvas.height *= dpi);
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
 
       drawImageProp(
         ctx,
@@ -55,7 +50,7 @@ export default function MonPics() {
 
       // TODO: Make the text customizable
       ctx.fillStyle = "white";
-      ctx.font = "bold 48pt Arial";
+      ctx.font = "bold 56pt Arial";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
@@ -65,10 +60,10 @@ export default function MonPics() {
       ctx.shadowOffsetX = shadowBase;
       ctx.shadowOffsetY = shadowBase;
 
-      const text = fileText ?? "";
-      const x = canvas.width / 2;
-      const y = canvas.height - 80;
-      const maxWidth = canvas.width - 80;
+      const text = fileText;
+      const x = canvasWidth / 2;
+      const y = canvasHeight - 80;
+      const maxWidth = canvasWidth - 80;
 
       wrapText(ctx, text, x, y, maxWidth);
     };
