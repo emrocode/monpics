@@ -34,6 +34,10 @@ export default function MonPics() {
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
 
+      // Clear canvas
+      // Avoid text duplication
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
       drawImageProp(
         ctx,
         img,
