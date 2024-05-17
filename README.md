@@ -5,6 +5,6 @@ No description
 - [React]
 - [Tailwindcss]
 
-[Preview]: https://github.com/emrocode/monpics/assets/92260849/8cf7d990-6aaa-42af-9303-703f86ac5697
+[Preview]: https://github.com/emrocode/monpics/assets/92260849/4527d9b9-8b44-4d9f-8a8e-26fc96b3ccae
 [React]:https://react.dev/
 [Tailwindcss]:https://tailwindcss.com/
