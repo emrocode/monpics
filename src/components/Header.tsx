@@ -9,7 +9,7 @@ export default function Header() {
       <nav className="container flex h-16 items-center justify-between">
         <NavLink
           to="/monpics/"
-          className="text-xl font-bold before:content-['\005B'] after:content-['\005D']"
+          className="text-xl font-bold"
           reloadDocument={isHome}
         >
           MonPics
