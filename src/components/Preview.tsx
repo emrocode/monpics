@@ -27,7 +27,7 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
       <div className="relative max-w-[400px] bg-neutral-50">
         {!file && (
           <span className="absolute inset-0 flex select-none items-center justify-center font-medium text-neutral-300">
-            MonPics
+            800x800
           </span>
         )}
         <canvas
