@@ -7,17 +7,23 @@ export default function MonPics() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [file, setFile] = useState<string>("");
   const [fileInfo, setFileInfo] = useState<FileList>();
-  const [fileText, setFIleText] = useState<string>("");
+  const [fileText, setFileText] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (
+      e.target.files &&
+      e.target.files[0] &&
+      e.target.files[0].type.startsWith("image/")
+    ) {
       setFile(URL.createObjectURL(e.target.files[0]));
       setFileInfo(e.target.files);
+    } else {
+      console.error("Only image files are allowed");
     }
   };
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFIleText(e.target.value);
+    setFileText(e.target.value);
   };
 
   useEffect(() => {
@@ -67,9 +73,8 @@ export default function MonPics() {
       const text = fileText;
       const x = canvasWidth / 2;
       const y = canvasHeight - 80;
-      const maxWidth = canvasWidth - 80;
 
-      wrapText(ctx, text, x, y, maxWidth);
+      wrapText(ctx, text, x, y, y);
     };
 
     img.src = file;
@@ -94,7 +99,7 @@ export default function MonPics() {
             </>
           )}
         </div>
-        <input type="file" accept="images/*" onChange={handleChange} />
+        <input type="file" accept="image/*" onChange={handleChange} />
       </label>
       <input
         type="text"
