@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { drawImageProp, wrapText } from "../hooks";
-import { Upload } from "react-feather";
+import { Plus } from "lucide-react";
+import Editor from "./Editor";
 import Preview from "./Preview";
 
 export default function MonPics() {
@@ -8,6 +9,8 @@ export default function MonPics() {
   const [file, setFile] = useState<string>("");
   const [fileInfo, setFileInfo] = useState<FileList>();
   const [fileText, setFileText] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [align, setAlign] = useState<string>("bottom");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (
@@ -17,6 +20,7 @@ export default function MonPics() {
     ) {
       setFile(URL.createObjectURL(e.target.files[0]));
       setFileInfo(e.target.files);
+      setLoading(false);
     } else {
       console.error("Only image files are allowed");
     }
@@ -71,22 +75,36 @@ export default function MonPics() {
       ctx.shadowOffsetY = shadowBase;
 
       const text = fileText;
+      const maxWidth = canvasWidth - 80;
       const x = canvasWidth / 2;
       const y = canvasHeight - 80;
 
-      wrapText(ctx, text, x, y, y);
+      wrapText(ctx, text, x, y, maxWidth, align);
     };
 
+    // Set image source preview
     img.src = file;
-  }, [file, fileText]);
+
+    // Add dialog to reload page
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (file) {
+        e.preventDefault();
+        e.returnValue = "";
+        return "Are you sure you want to reload the page?";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [file, fileText, align]);
 
   return (
     <section className="container my-8">
-      <label className="block max-w-max cursor-pointer">
+      <label className="mb-3 block max-w-max cursor-pointer">
         <div className="flex flex-wrap items-center gap-2">
-          <div className="up-button">
-            <Upload size={16} />
-            <span>upload image</span>
+          <div className="button" onClick={() => setLoading(true)}>
+            <Plus size={16} />
+            <span>{!file && loading ? "waiting..." : "add image"}</span>
           </div>
           {fileInfo && (
             <>
@@ -101,11 +119,10 @@ export default function MonPics() {
         </div>
         <input type="file" accept="image/*" onChange={handleChange} />
       </label>
-      <input
-        type="text"
-        onInput={handleTextChange}
-        placeholder="Write something..."
-        className="mt-4 w-full rounded border px-4 py-2"
+      <Editor
+        handleTextChange={handleTextChange}
+        align={align}
+        setAlign={setAlign}
       />
       <Preview file={file} canvasRef={canvasRef} />
     </section>

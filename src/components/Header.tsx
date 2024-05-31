@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import Logo from "/monpics.png";
 
 export default function Header() {
   const location = useLocation();
@@ -9,10 +10,10 @@ export default function Header() {
       <nav className="container flex h-16 items-center justify-between">
         <NavLink
           to="/monpics/"
-          className="text-xl font-bold"
+          className="flex items-center gap-x-2"
           reloadDocument={isHome}
         >
-          MonPics
+          <img decoding="async" src={Logo} alt="MonPics Logo" />
         </NavLink>
       </nav>
     </header>

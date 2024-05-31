@@ -1,4 +1,4 @@
-import { Download } from "react-feather";
+import { Download } from "lucide-react";
 import type { PreviewProps } from "../types";
 
 const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
@@ -9,15 +9,13 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
     const url = canvas.toDataURL("image/png");
     const a = document.createElement("a");
     const date = new Date();
-    const fileDate = date.toLocaleString("default", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
 
     document.body.appendChild(a);
     a.href = url;
-    a.download = `monpics_${fileDate}_${canvas.width}.png`; // Set the filename
+    a.download = `monpics_${day}${month}${year}_${canvas.width}.png`; // Set the filename
     a.click();
     document.body.removeChild(a);
   };
@@ -37,12 +35,12 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
           className="block h-full w-full"
         />
       </div>
-      <div className="mt-4 flex gap-x-2">
+      <div className="mt-4">
         {file && (
           <button
             type="button"
             onClick={handleDownload}
-            className="up-button bg-green-600"
+            className="button bg-green-600"
           >
             <Download size={16} />
             <span>download</span>

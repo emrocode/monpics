@@ -1,8 +1,6 @@
 /**
  * By Ken Fyrstenberg Nilsen
- *
- * drawImageProp(context, image [, x, y, width, height [,offsetX, offsetY]])
- *
+ * drawImageProp(ctx, img [, x, y, width, height [,offsetX, offsetY]])
  * If image and context are only arguments rectangle will equal canvas
  */
 export default function drawImageProp(
