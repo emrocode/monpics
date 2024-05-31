@@ -4,6 +4,7 @@ export default function wrapText(
   x: number,
   y: number,
   maxWidth: number,
+  align: string,
 ) {
   const words = text.split(" ");
   const lineHeight = ctx.measureText("M").width * 1.25; // Add line height
@@ -25,11 +26,17 @@ export default function wrapText(
   // All text height
   const totalHeight = lines.length * lineHeight;
 
-  // Position text at the bottom center
-  const startY = y - totalHeight + lineHeight;
+  // Position
+  let startY: number;
+  startY =
+    align === "top"
+      ? lineHeight
+      : align === "center"
+        ? (y - totalHeight) / 2 + lineHeight
+        : y - totalHeight + lineHeight;
 
   // Draw text on canvas
-  lines.forEach((line, index) => {
-    ctx.fillText(line, x, startY + index * lineHeight);
+  lines.forEach((line, i) => {
+    ctx.fillText(line, x, startY + i * lineHeight);
   });
 }
