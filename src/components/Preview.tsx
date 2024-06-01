@@ -22,9 +22,9 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
 
   return (
     <div className="mt-8">
-      <div className="relative max-w-[400px] bg-neutral-50">
+      <div className="relative max-w-[360px] bg-neutral-50">
         {!file && (
-          <span className="absolute inset-0 flex select-none items-center justify-center font-medium text-neutral-300">
+          <span className="absolute inset-0 flex select-none items-center justify-center text-neutral-300">
             800x800
           </span>
         )}
@@ -35,16 +35,18 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
           className="block h-full w-full"
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex items-center gap-x-1">
         {file && (
-          <button
-            type="button"
-            onClick={handleDownload}
-            className="button bg-green-600"
-          >
-            <Download size={16} />
-            <span>download</span>
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={handleDownload}
+              className="button bg-sky-600"
+            >
+              <Download size={16} />
+              <span>download</span>
+            </button>
+          </>
         )}
       </div>
     </div>

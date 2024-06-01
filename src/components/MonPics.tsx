@@ -119,11 +119,13 @@ export default function MonPics() {
         </div>
         <input type="file" accept="image/*" onChange={handleChange} />
       </label>
-      <Editor
-        handleTextChange={handleTextChange}
-        align={align}
-        setAlign={setAlign}
-      />
+      {file && (
+        <Editor
+          handleTextChange={handleTextChange}
+          align={align}
+          setAlign={setAlign}
+        />
+      )}
       <Preview file={file} canvasRef={canvasRef} />
     </section>
   );
