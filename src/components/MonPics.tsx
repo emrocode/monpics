@@ -77,7 +77,7 @@ export default function MonPics() {
       const text = fileText;
       const maxWidth = canvasWidth - 80;
       const x = canvasWidth / 2;
-      const y = canvasHeight - 80;
+      const y = canvasHeight;
 
       wrapText(ctx, text, x, y, maxWidth, option);
     };

@@ -7,7 +7,7 @@ export default function wrapText(
   option: string,
 ) {
   const words = text.split(" ");
-  const lineHeight = ctx.measureText("M").width * 1.25; // Add line height
+  const lineHeight = ctx.measureText("M").width * 1.5; // Add line height
   const lines = [];
   let currentLine = "";
 
@@ -32,8 +32,8 @@ export default function wrapText(
     option === "top"
       ? lineHeight
       : option === "center"
-        ? (y - totalHeight) / 2 + lineHeight
-        : y - totalHeight + lineHeight;
+        ? (y - totalHeight + lineHeight) / 2
+        : y - totalHeight;
 
   // Draw text on canvas
   lines.forEach((line, i) => {
