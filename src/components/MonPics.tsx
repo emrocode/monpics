@@ -10,7 +10,7 @@ export default function MonPics() {
   const [fileInfo, setFileInfo] = useState<FileList>();
   const [fileText, setFileText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [align, setAlign] = useState<string>("bottom");
+  const [option, setOption] = useState<string>("bottom");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (
@@ -79,7 +79,7 @@ export default function MonPics() {
       const x = canvasWidth / 2;
       const y = canvasHeight - 80;
 
-      wrapText(ctx, text, x, y, maxWidth, align);
+      wrapText(ctx, text, x, y, maxWidth, option);
     };
 
     // Set image source preview
@@ -96,7 +96,7 @@ export default function MonPics() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, [file, fileText, align]);
+  }, [file, fileText, option]);
 
   return (
     <section className="container my-8">
@@ -107,16 +107,6 @@ export default function MonPics() {
               <Plus size={16} />
               <span>{loading ? "waiting..." : "add image"}</span>
             </div>
-            {fileInfo && (
-              <>
-                {Array.from(fileInfo).map((file, i) => (
-                  <span className="rounded border px-4 py-2 text-sm" key={i}>
-                    {file.name} &middot; {Math.round(file.size / 1024)} KB
-                    &middot; {file.type}
-                  </span>
-                ))}
-              </>
-            )}
           </div>
           <input type="file" accept="image/*" onChange={handleChange} />
         </label>
@@ -124,10 +114,10 @@ export default function MonPics() {
         <>
           <Editor
             handleTextChange={handleTextChange}
-            align={align}
-            setAlign={setAlign}
+            option={option}
+            setOption={setOption}
           />
-          <Preview file={file} canvasRef={canvasRef} />
+          <Preview file={file} fileInfo={fileInfo} canvasRef={canvasRef} />
         </>
       )}
     </section>

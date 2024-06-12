@@ -4,7 +4,7 @@ export default function wrapText(
   x: number,
   y: number,
   maxWidth: number,
-  align: string,
+  option: string,
 ) {
   const words = text.split(" ");
   const lineHeight = ctx.measureText("M").width * 1.25; // Add line height
@@ -29,9 +29,9 @@ export default function wrapText(
   // Position
   let startY: number;
   startY =
-    align === "top"
+    option === "top"
       ? lineHeight
-      : align === "center"
+      : option === "center"
         ? (y - totalHeight) / 2 + lineHeight
         : y - totalHeight + lineHeight;
 

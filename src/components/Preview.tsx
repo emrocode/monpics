@@ -1,7 +1,7 @@
 import { Download } from "lucide-react";
 import type { PreviewProps } from "../types";
 
-const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
+const Preview: React.FC<PreviewProps> = ({ file, fileInfo, canvasRef }) => {
   const handleDownload = () => {
     if (!canvasRef.current) return;
 
@@ -20,6 +20,8 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
     document.body.removeChild(a);
   };
 
+  const imageData = fileInfo ? Array.from(fileInfo) : [];
+
   return (
     <div className="mt-8">
       {file && (
@@ -32,7 +34,13 @@ const Preview: React.FC<PreviewProps> = ({ file, canvasRef }) => {
               className="block h-full w-full"
             />
           </div>
-          <div className="mt-4 flex items-center gap-x-1">
+          <div className="mt-4 flex flex-col items-start gap-y-2">
+            {imageData.map((file, i) => (
+              <span className="rounded border px-4 py-2 text-sm" key={i}>
+                {file.name} &middot; {Math.round(file.size / 1024)} KB &middot;{" "}
+                {file.type}
+              </span>
+            ))}
             <button
               type="button"
               onClick={handleDownload}

@@ -26,8 +26,8 @@ const EditorOptions = [
 
 const Editor: React.FC<EditorProps> = ({
   handleTextChange,
-  align,
-  setAlign,
+  option,
+  setOption,
 }) => {
   return (
     <div className="flex w-full flex-wrap gap-2 md:flex-nowrap">
@@ -38,17 +38,17 @@ const Editor: React.FC<EditorProps> = ({
         className="w-full rounded border px-4 py-2"
       />
       <div className="flex gap-1">
-        {EditorOptions.map((option, index) => (
+        {EditorOptions.map((item, index) => (
           <button
             type="button"
             className={clsx("button", {
-              "button bg-sky-600": align === option.alignment,
+              "button bg-sky-600": option === item.alignment,
             })}
-            onClick={() => setAlign(option.alignment)}
-            title={option.title}
+            onClick={() => setOption(item.alignment)}
+            title={item.title}
             key={index}
           >
-            {option.icon}
+            {item.icon}
           </button>
         ))}
       </div>
