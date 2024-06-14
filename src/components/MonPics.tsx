@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { drawImageProp, wrapText } from "../hooks";
-import { Plus } from "lucide-react";
-import Editor from "./Editor";
-import Preview from "./Preview";
+import { Editor, Preview, UploadFile } from "./sections";
 
 export default function MonPics() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -11,6 +9,17 @@ export default function MonPics() {
   const [fileText, setFileText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [option, setOption] = useState<string>("bottom");
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    const value = e.currentTarget.dataset.value;
+    const fileData = new File([], value || "", { type: "image/jpg" });
+    const dataTransfer = new DataTransfer();
+
+    // console.log(value);
+    value && setFile(value);
+    dataTransfer.items.add(fileData);
+    setFileInfo(dataTransfer.files);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (
@@ -101,15 +110,12 @@ export default function MonPics() {
   return (
     <section className="container my-8">
       {!file ? (
-        <label className="mb-3 block max-w-max cursor-pointer">
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="button" onClick={() => setLoading(true)}>
-              <Plus size={16} />
-              <span>{loading ? "waiting..." : "add image"}</span>
-            </div>
-          </div>
-          <input type="file" accept="image/*" onChange={handleChange} />
-        </label>
+        <UploadFile
+          loading={loading}
+          setLoading={setLoading}
+          handleClick={handleClick}
+          handleChange={handleChange}
+        />
       ) : (
         <>
           <Editor
