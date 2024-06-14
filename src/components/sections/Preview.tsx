@@ -58,7 +58,7 @@ const Preview: React.FC<PreviewProps> = ({ file, fileInfo, canvasRef }) => {
                       "null"}
                   </span>
                   <span>Type: {file.type}</span>
-                  <span>Uploaded at {formatDate(file.lastModified)}</span>
+                  <span>Last Modified: {formatDate(file.lastModified)}</span>
                 </div>
               ))}
             </div>
