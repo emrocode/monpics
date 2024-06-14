@@ -12,12 +12,13 @@ export default function Card({
       onClick={handleClick}
       data-value={imageFullSize}
     >
-      <figure className="relative h-[160px] overflow-clip rounded-lg">
+      <figure className="relative overflow-clip rounded-lg">
         <img
-          decoding="async"
+          decoding="sync"
+          loading="eager"
           src={image}
           alt={`MonPics demo image by ${author.name}`}
-          className="block h-full w-full object-cover object-center"
+          className="h-[160px] w-full object-cover object-center"
         />
       </figure>
       <p className="text-sm">
