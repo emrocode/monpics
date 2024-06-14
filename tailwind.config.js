@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ["Open Sans", "sans-serif"],
       },
+      gridTemplateColumns: {
+        custom: "repeat(auto-fill, minmax(12rem, 1fr))",
+      },
     },
   },
   plugins: [],
