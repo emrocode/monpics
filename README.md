@@ -1,10 +1,11 @@
 ![Preview]
 ## MonPics
-No description
+Simple image editor for adding text to images
 ### Built with:
 - [React]
 - [Tailwindcss]
 
-[Preview]: https://github.com/emrocode/monpics/assets/92260849/4527d9b9-8b44-4d9f-8a8e-26fc96b3ccae
+
+[Preview]: https://github.com/emrocode/monpics/assets/92260849/18361723-3b0c-4353-b600-1091049774f7
 [React]:https://react.dev/
 [Tailwindcss]:https://tailwindcss.com/
