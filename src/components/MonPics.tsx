@@ -12,7 +12,10 @@ export default function MonPics() {
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const value = e.currentTarget.dataset.value;
-    const fileData = new File([], value || "", { type: "image/jpg" });
+    const fileData = new File([], value || "", {
+      type: "image/jpg",
+      lastModified: 946695600000, // Fake timestamp
+    });
     const dataTransfer = new DataTransfer();
 
     // console.log(value);

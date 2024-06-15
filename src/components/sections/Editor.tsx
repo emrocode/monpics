@@ -42,7 +42,7 @@ const Editor: React.FC<EditorProps> = ({
           <button
             type="button"
             className={clsx("button", {
-              "button bg-sky-600": option === item.alignment,
+              "button bg-sky-900": option === item.alignment,
             })}
             onClick={() => setOption(item.alignment)}
             title={item.title}

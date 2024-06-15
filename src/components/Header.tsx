@@ -13,7 +13,7 @@ export default function Header() {
           reloadDocument={isHome}
         >
           <span>MonPics</span>
-          <span className="rounded-full bg-sky-500 px-2 py-1 text-xs uppercase text-white">
+          <span className="rounded-full bg-sky-700 px-2 py-1 text-xs uppercase text-white">
             beta
           </span>
         </NavLink>

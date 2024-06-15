@@ -1,5 +1,4 @@
 import Card from "../Card";
-import { Info } from "lucide-react";
 import type { GalleryProps } from "../../types";
 
 const galleryItems = [
@@ -37,20 +36,6 @@ const Gallery: React.FC<GalleryProps> = ({ handleClick }) => {
           />
         ))}
       </div>
-      <p className="flex items-center gap-x-2 text-sm">
-        <Info size={16} color="#0ea5e9" />
-        <span>
-          All images are sourced from{" "}
-          <a
-            href="https://pixabay.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sky-500 underline hover:bg-sky-500/25"
-          >
-            Pixabay
-          </a>
-        </span>
-      </p>
     </>
   );
 };

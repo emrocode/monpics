@@ -54,8 +54,7 @@ const Preview: React.FC<PreviewProps> = ({ file, fileInfo, canvasRef }) => {
                   <span>Name: {file.name}</span>
                   <span>
                     Size:{" "}
-                    {(file.size && `${Math.round(file.size / 1024)} KB`) ||
-                      "null"}
+                    {(file.size && `${Math.round(file.size / 1024)} KB`) || "Sorry, could not defined"}
                   </span>
                   <span>Type: {file.type}</span>
                   <span>Last Modified: {formatDate(file.lastModified)}</span>
