@@ -7,12 +7,12 @@ export default function Card({
   handleClick,
 }: CardProps) {
   return (
-    <article
-      className="flex cursor-pointer flex-col gap-4 rounded-xl border p-4"
-      onClick={handleClick}
-      data-value={imageFullSize}
-    >
-      <figure className="relative overflow-clip rounded-lg">
+    <article className="flex cursor-pointer flex-col gap-4 rounded-xl border p-4">
+      <figure
+        className="relative overflow-clip rounded-lg hover:opacity-80"
+        onClick={handleClick}
+        data-value={imageFullSize}
+      >
         <img
           decoding="sync"
           loading="eager"
@@ -27,9 +27,18 @@ export default function Card({
           href={author.profileUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sky-500 underline hover:bg-sky-500/25"
+          className="text-sky-700 underline hover:bg-sky-700/25"
         >
           {author.name}
+        </a>{" "}
+        from{" "}
+        <a
+          href="https://pixabay.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sky-700 underline hover:bg-sky-700/25"
+        >
+          Pixabay
         </a>
       </p>
     </article>
