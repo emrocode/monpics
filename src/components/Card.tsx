@@ -14,11 +14,10 @@ export default function Card({
         data-value={imageFullSize}
       >
         <img
-          decoding="sync"
           loading="eager"
           src={image}
           alt={`MonPics demo image by ${author.name}`}
-          className="h-[160px] w-full object-cover object-center"
+          className="h-[160px] w-[360px] object-cover object-center"
         />
       </figure>
       <p className="text-sm">
