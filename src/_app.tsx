@@ -7,7 +7,7 @@ import "./styles/globals.css";
 
 const router = createBrowserRouter([
   {
-    path: "/monpics/",
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -21,5 +21,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("app")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
