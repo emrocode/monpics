@@ -30,3 +30,7 @@ export type CardProps = {
   };
   handleClick: (e: React.MouseEvent<HTMLElement>) => void;
 };
+
+export type ThemeContextType = {
+  toggleDarkMode: () => void;
+};
