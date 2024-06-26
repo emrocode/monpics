@@ -1,3 +1,4 @@
+import css from "../styles/Card.module.css";
 import type { CardProps } from "../types";
 
 export default function Card({
@@ -7,9 +8,9 @@ export default function Card({
   handleClick,
 }: CardProps) {
   return (
-    <article className="flex cursor-pointer flex-col gap-4 rounded-xl border p-4">
+    <article className={css.card}>
       <figure
-        className="relative overflow-clip rounded-lg hover:opacity-80"
+        className={css.card_img}
         onClick={handleClick}
         data-value={imageFullSize}
       >
@@ -17,29 +18,30 @@ export default function Card({
           loading="eager"
           src={image}
           alt={`MonPics demo image by ${author.name}`}
-          className="h-[160px] w-[360px] object-cover object-center"
         />
       </figure>
-      <p className="text-sm">
-        Image by{" "}
-        <a
-          href={author.profileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sky-700 underline hover:bg-sky-700/25"
-        >
-          {author.name}
-        </a>{" "}
-        from{" "}
-        <a
-          href="https://pixabay.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sky-700 underline hover:bg-sky-700/25"
-        >
-          Pixabay
-        </a>
-      </p>
+      <div className={css.card_body}>
+        <p className={css.card_par}>
+          Image by{" "}
+          <a
+            href={author.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={css.card_link}
+          >
+            {author.name}
+          </a>{" "}
+          from{" "}
+          <a
+            href="https://pixabay.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={css.card_link}
+          >
+            Pixabay
+          </a>
+        </p>
+      </div>
     </article>
   );
 }

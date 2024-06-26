@@ -1,0 +1,18 @@
+.card {
+  @apply flex flex-col gap-4 rounded-xl border p-4 shadow-sm;
+  & > .card_img {
+    @apply cursor-pointer overflow-hidden rounded-lg hover:opacity-80;
+    & > img {
+      @apply h-[160px] min-w-[360px];
+    }
+  }
+}
+
+.card_body {
+  & > .card_par {
+    @apply text-xs;
+    & > .card_link {
+      @apply text-sky-700 underline hover:bg-sky-700/25;
+    }
+  }
+}

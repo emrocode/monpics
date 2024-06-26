@@ -35,6 +35,7 @@ export default function MonPics() {
       setLoading(false);
     } else {
       console.error("Only image files are allowed");
+      setLoading(false);
     }
   };
 
@@ -97,7 +98,7 @@ export default function MonPics() {
     // Set image source preview
     img.src = file;
 
-    // Add dialog to reload page
+    // Add dialog before reload page
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (file) {
         e.preventDefault();

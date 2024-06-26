@@ -1,21 +1,17 @@
 import { NavLink, useLocation } from "react-router-dom";
+import Logo from "./Logo";
+import css from "../styles/Header.module.css";
 
 export default function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
   return (
-    <header className="border-b">
-      <nav className="container flex h-16 items-center justify-between">
-        <NavLink
-          to="/"
-          className="flex items-center gap-x-2 text-xl font-bold"
-          reloadDocument={isHome}
-        >
+    <header className={css.header}>
+      <nav className={css.nav}>
+        <NavLink to="/" className={css.nav_brand} reloadDocument={isHome}>
+          <Logo />
           <span>MonPics</span>
-          <span className="rounded-full bg-sky-700 px-2 py-1 text-xs uppercase text-white">
-            beta
-          </span>
         </NavLink>
       </nav>
     </header>

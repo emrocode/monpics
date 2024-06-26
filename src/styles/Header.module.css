@@ -1,0 +1,26 @@
+.header {
+  @apply border-b;
+}
+
+.nav {
+  @apply container flex h-16 items-center justify-between;
+}
+
+.nav_brand {
+  @apply flex items-center gap-x-3;
+  & > span {
+    @apply text-xl font-bold;
+  }
+}
+
+.menu {
+  @apply flex h-full gap-x-1;
+}
+
+.menu_item {
+  @apply h-full;
+}
+
+.menu_link {
+  @apply flex h-full items-center px-3 py-1 font-semibold capitalize hover:bg-sky-700/5;
+}

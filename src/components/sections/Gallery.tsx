@@ -3,19 +3,19 @@ import type { GalleryProps } from "../../types";
 
 const galleryItems = [
   {
-    image: "tiger.webp",
-    imageFullSize: "tiger.jpg",
+    image: "demo1.webp",
+    imageFullSize: "demo1.jpg",
     author: {
-      name: "Jaime Orejuela",
+      name: "Jaime",
       profileUrl:
         "https://pixabay.com/users/photoshop-art-12454404/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8436227",
     },
   },
   {
-    image: "anime.webp",
-    imageFullSize: "anime.jpg",
+    image: "demo2.webp",
+    imageFullSize: "demo2.jpg",
     author: {
-      name: "vandesart",
+      name: "Vandesart",
       profileUrl:
         "https://pixabay.com/users/vandesart-39485690/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8788959",
     },

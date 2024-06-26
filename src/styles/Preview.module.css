@@ -1,0 +1,20 @@
+.preview_container {
+  @apply mt-4;
+}
+
+.preview_canvas__container {
+  @apply flex flex-wrap gap-4;
+  & > .preview_canvas {
+    @apply relative max-w-[360px] bg-neutral-50;
+    & > .canvas {
+      @apply block h-full w-full;
+    }
+  }
+}
+
+.sidebar {
+  @apply flex flex-col items-start gap-y-2;
+  & > .sidebar_info {
+    @apply flex flex-col gap-px text-xs;
+  }
+}

@@ -1,4 +1,5 @@
 import { Download } from "lucide-react";
+import css from "../../styles/Preview.module.css";
 import type { PreviewProps } from "../../types";
 
 const Preview: React.FC<PreviewProps> = ({ file, fileInfo, canvasRef }) => {
@@ -28,34 +29,30 @@ const Preview: React.FC<PreviewProps> = ({ file, fileInfo, canvasRef }) => {
   };
 
   return (
-    <div className="mt-8">
+    <div className={css.preview_container}>
       {file && (
         <>
-          <div className="flex flex-wrap gap-4">
-            <div className="relative max-w-[360px] bg-neutral-50">
+          <div className={css.preview_canvas__container}>
+            <div className={css.preview_canvas}>
               <canvas
                 ref={canvasRef}
                 width={800}
                 height={800}
-                className="block h-full w-full"
+                className={css.canvas}
               />
             </div>
-            <div className="flex flex-col items-start gap-y-2">
-              <button
-                type="button"
-                onClick={handleDownload}
-                className="button bg-sky-600"
-              >
+            <div className={css.sidebar}>
+              <button type="button" onClick={handleDownload} className="button">
                 <Download size={16} />
                 <span>download</span>
               </button>
               {imageData.map((file, i) => (
-                <div className="flex flex-col text-xs" key={i}>
+                <div className={css.sidebar_info} key={i}>
                   <span>Name: {file.name}</span>
                   <span>
                     Size:{" "}
                     {(file.size && `${Math.round(file.size / 1024)} KB`) ||
-                      "9999+"}
+                      "unknown"}
                   </span>
                   <span>Type: {file.type}</span>
                   <span>Last Modified: {formatDate(file.lastModified)}</span>

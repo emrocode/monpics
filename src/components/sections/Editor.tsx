@@ -1,25 +1,26 @@
-import clsx from "clsx";
 import {
   AlignStartHorizontal,
   AlignCenterHorizontal,
   AlignEndHorizontal,
 } from "lucide-react";
+import clsx from "clsx";
+import css from "../../styles/Editor.module.css";
 import { EditorProps } from "../../types";
 
 const EditorOptions = [
   {
     title: "Align Top",
-    alignment: "top",
+    option: "top",
     icon: <AlignStartHorizontal size={16} />,
   },
   {
     title: "Align Center",
-    alignment: "center",
+    option: "center",
     icon: <AlignCenterHorizontal size={16} />,
   },
   {
     title: "Align Bottom",
-    alignment: "bottom",
+    option: "bottom",
     icon: <AlignEndHorizontal size={16} />,
   },
 ];
@@ -30,21 +31,21 @@ const Editor: React.FC<EditorProps> = ({
   setOption,
 }) => {
   return (
-    <div className="flex w-full flex-wrap gap-2 md:flex-nowrap">
+    <div className={css.editor}>
       <input
         type="text"
         onInput={handleTextChange}
         placeholder="Write something..."
-        className="w-full rounded border px-4 py-2"
+        className={css.textarea}
       />
-      <div className="flex gap-1">
+      <div className={css.toolbar}>
         {EditorOptions.map((item, index) => (
           <button
             type="button"
             className={clsx("button", {
-              "button bg-sky-900": option === item.alignment,
+              "button bg-sky-900": option === item.option,
             })}
-            onClick={() => setOption(item.alignment)}
+            onClick={() => setOption(item.option)}
             title={item.title}
             key={index}
           >

@@ -9,7 +9,7 @@ const Upload: React.FC<UploadProps> = ({
   handleChange,
 }) => {
   return (
-    <div className="flex flex-col gap-y-8">
+    <div className="flex flex-col gap-y-6">
       <label>
         <div className="button rounded-full" onClick={() => setLoading(true)}>
           <Plus size={16} />
