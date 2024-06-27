@@ -1,11 +1,11 @@
 .preview_container {
-  @apply mt-4;
+  @apply w-full;
 }
 
 .preview_canvas__container {
-  @apply flex flex-wrap gap-4;
+  @apply flex flex-col;
   & > .preview_canvas {
-    @apply relative max-w-[360px] bg-neutral-50;
+    @apply relative max-w-[360px] bg-zinc-50;
     & > .canvas {
       @apply block h-full w-full;
     }
@@ -13,8 +13,8 @@
 }
 
 .sidebar {
-  @apply flex flex-col items-start gap-y-2;
+  @apply flex flex-col items-start;
   & > .sidebar_info {
-    @apply flex flex-col gap-px text-xs;
+    @apply bg-zinc-950 px-3 py-1 text-xs text-white;
   }
 }

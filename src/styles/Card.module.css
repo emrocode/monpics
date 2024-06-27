@@ -1,5 +1,5 @@
 .card {
-  @apply flex flex-col gap-4 rounded-xl border p-4 shadow-sm;
+  @apply flex flex-col gap-4 rounded-xl border p-4;
   & > .card_img {
     @apply cursor-pointer overflow-hidden rounded-lg hover:opacity-80;
     & > img {
