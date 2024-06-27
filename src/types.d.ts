@@ -1,13 +1,13 @@
-export type PreviewProps = {
-  file: string;
-  fileInfo: FileList | undefined;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
-};
-
 export type EditorProps = {
   handleTextChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
   option: string;
   setOption: (option: string) => void;
+};
+
+export type PreviewProps = {
+  file: string;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
 };
 
 export type UploadProps = {
@@ -29,8 +29,4 @@ export type CardProps = {
     profileUrl: string;
   };
   handleClick: (e: React.MouseEvent<HTMLElement>) => void;
-};
-
-export type ThemeContextType = {
-  toggleDarkMode: () => void;
 };
