@@ -10,7 +10,7 @@ export default function Logo() {
       <rect
         style={{
           opacity: 1,
-          fill: "#0359a1",
+          fill: "#0369a1",
           fillOpacity: 1,
           strokeWidth: 3.78001,
         }}

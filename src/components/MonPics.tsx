@@ -5,23 +5,14 @@ import { Editor, Preview, UploadFile } from "./sections";
 export default function MonPics() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [file, setFile] = useState<string>("");
-  const [fileInfo, setFileInfo] = useState<FileList>();
   const [fileText, setFileText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [option, setOption] = useState<string>("bottom");
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const value = e.currentTarget.dataset.value;
-    const fileData = new File([], value || "", {
-      type: "image/jpg",
-      lastModified: 946695600000, // Fake timestamp
-    });
-    const dataTransfer = new DataTransfer();
-
     // console.log(value);
     value && setFile(value);
-    dataTransfer.items.add(fileData);
-    setFileInfo(dataTransfer.files);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +22,6 @@ export default function MonPics() {
       e.target.files[0].type.startsWith("image/")
     ) {
       setFile(URL.createObjectURL(e.target.files[0]));
-      setFileInfo(e.target.files);
       setLoading(false);
     } else {
       console.error("Only image files are allowed");
@@ -109,7 +99,7 @@ export default function MonPics() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, [file, fileText, option]);
+  }, [file, fileText, option, canvasRef]);
 
   return (
     <section className="container my-8">
@@ -121,14 +111,15 @@ export default function MonPics() {
           handleChange={handleChange}
         />
       ) : (
-        <>
+        <section className="flex flex-row-reverse flex-wrap gap-4 sm:flex-nowrap">
           <Editor
             handleTextChange={handleTextChange}
+            canvasRef={canvasRef}
             option={option}
             setOption={setOption}
           />
-          <Preview file={file} fileInfo={fileInfo} canvasRef={canvasRef} />
-        </>
+          <Preview file={file} canvasRef={canvasRef} />
+        </section>
       )}
     </section>
   );

@@ -2,6 +2,7 @@ import {
   AlignStartHorizontal,
   AlignCenterHorizontal,
   AlignEndHorizontal,
+  Download,
 } from "lucide-react";
 import clsx from "clsx";
 import css from "../../styles/Editor.module.css";
@@ -27,9 +28,28 @@ const EditorOptions = [
 
 const Editor: React.FC<EditorProps> = ({
   handleTextChange,
+  canvasRef,
   option,
   setOption,
 }) => {
+  const handleDownload = () => {
+    if (!canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const url = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    document.body.appendChild(a);
+    a.href = url;
+    a.download = `monpics_${day}${month}${year}_${canvas.width}.png`; // Set the filename
+    a.click();
+    document.body.removeChild(a);
+  };
+
   return (
     <div className={css.editor}>
       <input
@@ -42,8 +62,8 @@ const Editor: React.FC<EditorProps> = ({
         {EditorOptions.map((item, index) => (
           <button
             type="button"
-            className={clsx("button", {
-              "button bg-sky-900": option === item.option,
+            className={clsx(css.button, {
+              [css.active]: option === item.option,
             })}
             onClick={() => setOption(item.option)}
             title={item.title}
@@ -52,6 +72,12 @@ const Editor: React.FC<EditorProps> = ({
             {item.icon}
           </button>
         ))}
+      </div>
+      <div className={css.toolbar}>
+        <button type="button" className={css.button} onClick={handleDownload}>
+          <Download size={16} />
+          <span>download</span>
+        </button>
       </div>
     </div>
   );
