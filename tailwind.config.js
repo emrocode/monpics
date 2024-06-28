@@ -7,7 +7,7 @@ export default {
         sans: ["Open Sans", "sans-serif"],
       },
       gridTemplateColumns: {
-        custom: "repeat(auto-fill, minmax(12rem, 1fr))",
+        custom: "repeat(auto-fill, minmax(10rem, 1fr))",
       },
     },
   },
