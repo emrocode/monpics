@@ -27,10 +27,6 @@
   body {
     @apply bg-white text-zinc-900 antialiased;
   }
-
-  input[type="file"] {
-    @apply hidden;
-  }
 }
 
 @layer utilities {
