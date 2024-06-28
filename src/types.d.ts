@@ -12,9 +12,9 @@ export type PreviewProps = {
 
 export type UploadProps = {
   loading: boolean;
-  setLoading: (loading: boolean) => void;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   handleClick: (e: React.MouseEvent<HTMLElement>) => void;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: File[]) => void;
 };
 
 export type GalleryProps = {
