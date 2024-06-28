@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { drawImageProp, wrapText } from "../hooks";
+import { drawImageProp, wrapText } from "../monpics";
 import { Editor, Preview, UploadFile } from "./sections";
+import clsx from "clsx";
+import css from "../styles/MonPics.module.css";
 
 export default function MonPics() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -15,16 +17,10 @@ export default function MonPics() {
     value && setFile(value);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (
-      e.target.files &&
-      e.target.files[0] &&
-      e.target.files[0].type.startsWith("image/")
-    ) {
-      setFile(URL.createObjectURL(e.target.files[0]));
-      setLoading(false);
-    } else {
-      console.error("Only image files are allowed");
+  const handleChange = (acceptedFiles: File[]) => {
+    const selectedFile = acceptedFiles[0];
+    if (selectedFile && selectedFile.type.startsWith("image/")) {
+      setFile(URL.createObjectURL(selectedFile));
       setLoading(false);
     }
   };
@@ -32,6 +28,10 @@ export default function MonPics() {
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFileText(e.target.value);
   };
+
+  const uploadFileProps = { loading, setLoading, handleClick, handleChange };
+  const editorProps = { handleTextChange, canvasRef, option, setOption };
+  const previewProps = { file, canvasRef };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -102,24 +102,14 @@ export default function MonPics() {
   }, [file, fileText, option, canvasRef]);
 
   return (
-    <section className="container my-8">
+    <section className={clsx("container", css.container)}>
       {!file ? (
-        <UploadFile
-          loading={loading}
-          setLoading={setLoading}
-          handleClick={handleClick}
-          handleChange={handleChange}
-        />
+        <UploadFile {...uploadFileProps} />
       ) : (
-        <section className="flex flex-row-reverse flex-wrap gap-4 sm:flex-nowrap">
-          <Editor
-            handleTextChange={handleTextChange}
-            canvasRef={canvasRef}
-            option={option}
-            setOption={setOption}
-          />
-          <Preview file={file} canvasRef={canvasRef} />
-        </section>
+        <div className={css.wrapper}>
+          <Editor {...editorProps} />
+          <Preview {...previewProps} />
+        </div>
       )}
     </section>
   );

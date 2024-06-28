@@ -15,9 +15,11 @@ export default function Card({
         data-value={imageFullSize}
       >
         <img
-          loading="eager"
           src={image}
           alt={`MonPics demo image by ${author.name}`}
+          width={360}
+          height={160}
+          draggable={false}
         />
       </figure>
       <div className={css.card_body}>

@@ -1,30 +1,8 @@
-import {
-  AlignStartHorizontal,
-  AlignCenterHorizontal,
-  AlignEndHorizontal,
-  Download,
-} from "lucide-react";
+import { EditorOptions } from "../../data";
+import { Download } from "lucide-react";
 import clsx from "clsx";
 import css from "../../styles/Editor.module.css";
 import { EditorProps } from "../../types";
-
-const EditorOptions = [
-  {
-    title: "Align Top",
-    option: "top",
-    icon: <AlignStartHorizontal size={16} />,
-  },
-  {
-    title: "Align Center",
-    option: "center",
-    icon: <AlignCenterHorizontal size={16} />,
-  },
-  {
-    title: "Align Bottom",
-    option: "bottom",
-    icon: <AlignEndHorizontal size={16} />,
-  },
-];
 
 const Editor: React.FC<EditorProps> = ({
   handleTextChange,
