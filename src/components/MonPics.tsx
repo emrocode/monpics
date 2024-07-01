@@ -30,7 +30,7 @@ export default function MonPics() {
   };
 
   const uploadFileProps = { loading, setLoading, handleClick, handleChange };
-  const editorProps = { handleTextChange, canvasRef, option, setOption };
+  const editorProps = { canvasRef, option, setOption, handleTextChange };
   const previewProps = { file, canvasRef };
 
   useEffect(() => {

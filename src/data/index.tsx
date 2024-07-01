@@ -1,14 +1,8 @@
-import {
-  AlignStartHorizontal,
-  AlignCenterHorizontal,
-  AlignEndHorizontal,
-} from "lucide-react";
-
 export const galleryItems = [
   {
     id: 8436227,
-    image: "demo1.webp",
-    imageFullSize: "demo1.jpg",
+    image: "/images/demo1.webp",
+    imageFullSize: "/images/demo1.jpg",
     author: {
       name: "Jaime",
       profileUrl:
@@ -17,8 +11,8 @@ export const galleryItems = [
   },
   {
     id: 8788959,
-    image: "demo2.webp",
-    imageFullSize: "demo2.jpg",
+    image: "/images/demo2.webp",
+    imageFullSize: "/images/demo2.jpg",
     author: {
       name: "Vandesart",
       profileUrl:
@@ -27,20 +21,4 @@ export const galleryItems = [
   },
 ];
 
-export const EditorOptions = [
-  {
-    title: "Align Top",
-    option: "top",
-    icon: <AlignStartHorizontal size={16} />,
-  },
-  {
-    title: "Align Center",
-    option: "center",
-    icon: <AlignCenterHorizontal size={16} />,
-  },
-  {
-    title: "Align Bottom",
-    option: "bottom",
-    icon: <AlignEndHorizontal size={16} />,
-  },
-];
+export const navItems = [];

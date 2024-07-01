@@ -7,7 +7,7 @@
 }
 
 .nav_brand {
-  @apply flex items-center gap-x-3;
+  @apply flex items-center gap-x-2;
   & > span {
     @apply text-xl font-bold;
   }
@@ -22,5 +22,8 @@
 }
 
 .menu_link {
-  @apply flex h-full items-center px-3 py-1 font-semibold capitalize hover:bg-sky-700/5;
+  @apply flex h-full items-center px-3 py-1 capitalize hover:bg-sky-700/5;
+  &.active {
+    @apply border-b border-sky-700 bg-sky-700/5;
+  }
 }

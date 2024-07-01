@@ -34,7 +34,7 @@ const Upload: React.FC<UploadProps> = ({
         >
           <div className={css.input_container}>
             <input {...getInputProps()} />
-            <span>Drag 'n' drop some files here</span>
+            <span>Drag 'n' drop a image here</span>
           </div>
           <button type="button" className={css.button} onClick={open}>
             <Plus size={16} />
