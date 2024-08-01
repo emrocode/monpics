@@ -1,0 +1,9 @@
+.footer {
+  & > .footer_nav {
+    @apply flex h-16 items-center text-sm;
+  }
+}
+
+.footer_link {
+  @apply text-monpics-500 underline hover:bg-monpics-500/15;
+}
