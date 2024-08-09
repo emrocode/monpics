@@ -57,10 +57,19 @@
   body {
     @apply min-h-screen bg-monpics-100 text-monpics-500 antialiased;
   }
+
+  main#app {
+    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-8;
+  }
+
+  img,
+  canvas {
+    @apply block size-full;
+  }
 }
 
 @layer utilities {
   .container {
-    @apply mx-auto w-[90%] max-w-[768px];
+    @apply mx-auto w-[90%] max-w-3xl;
   }
 }

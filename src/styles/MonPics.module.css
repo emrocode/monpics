@@ -1,6 +1,6 @@
 .container {
-  @apply py-8;
+  @apply col-start-1 col-end-2 row-start-2 row-end-3;
   & > .wrapper {
-    @apply flex flex-row-reverse flex-wrap gap-4 sm:flex-nowrap;
+    @apply grid size-full max-h-[576px] grid-rows-[auto_1fr] md:grid-cols-[auto_1fr] md:grid-rows-none;
   }
 }

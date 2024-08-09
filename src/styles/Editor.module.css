@@ -1,39 +1,18 @@
 .editor {
-  @apply relative flex w-full flex-col gap-1.5;
-  & > .textarea {
-    @apply mb-2 border-b border-monpics-300 bg-transparent px-4 py-2 outline-none;
-  }
+  @apply relative flex flex-col items-start gap-3 rounded-t border-x border-t border-monpics-200 p-4 md:flex-row md:!rounded-l md:rounded-t-none md:border-x-0 md:border-y md:border-l;
 }
 
 .toolbar {
-  @apply flex flex-wrap gap-1.5;
+  @apply flex flex-wrap gap-1.5 md:flex-col;
 }
 
 .button {
-  @apply flex items-center gap-2 rounded border bg-monpics-200 px-4 py-3 hover:bg-monpics-400 hover:text-monpics-200;
+  @apply rounded bg-monpics-200 px-4 py-3 hover:opacity-80;
   & > span {
     @apply text-xs uppercase;
   }
 }
 
 .button.active {
-  @apply bg-monpics-500 text-monpics-200 hover:bg-monpics-500;
-}
-
-.text_menu {
-  @apply max-w-max;
-}
-
-.color_picker {
-  @apply flex max-w-32 flex-col gap-y-1.5;
-  & > .hex_picker {
-    @apply max-h-32 max-w-32;
-    & ~ input {
-      @apply rounded bg-monpics-200 px-4 py-3 text-xs outline-none;
-    }
-
-    & div {
-      @apply first-of-type:rounded-t last-of-type:rounded-b;
-    }
-  }
+  @apply bg-monpics-500 text-monpics-200 hover:opacity-100;
 }

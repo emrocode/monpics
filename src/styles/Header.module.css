@@ -1,20 +1,21 @@
-.nav {
-  @apply container flex h-16 items-center justify-between;
-}
-
-.nav_brand {
-  @apply flex items-center gap-x-2;
-  & > span {
-    @apply text-xl font-bold;
+.header {
+  @apply col-start-1 col-end-2 row-start-1 row-end-2;
+  & > .nav {
+    @apply flex h-16 items-center justify-between;
+    & > .nav_brand {
+      @apply flex items-center gap-x-2;
+      & > span {
+        @apply text-xl font-bold;
+      }
+    }
   }
 }
 
 .menu {
   @apply flex h-full gap-x-1;
-}
-
-.menu_item {
-  @apply h-full;
+  & > .menu_item {
+    @apply h-full;
+  }
 }
 
 .menu_link {

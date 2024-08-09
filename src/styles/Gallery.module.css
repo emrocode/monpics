@@ -1,0 +1,3 @@
+.wrapper {
+  @apply grid w-full grid-cols-custom gap-2;
+}

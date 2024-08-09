@@ -1,0 +1,23 @@
+.text_menu {
+  @apply flex size-full flex-col gap-3 md:left-full md:ml-4;
+  & > .textarea {
+    @apply mb-2 border-b border-monpics-200 bg-transparent px-3 py-1.5 outline-none;
+  }
+}
+
+.color_picker {
+  @apply flex max-w-32 flex-col gap-y-1.5;
+  & > .hex_picker {
+    @apply max-h-32 max-w-32;
+    & ~ input {
+      @apply rounded bg-monpics-500 px-4 py-3 text-xs text-monpics-100 outline-none;
+    }
+  }
+}
+
+.hex_picker div {
+  @apply first-of-type:rounded-t last-of-type:rounded-b;
+  & > div {
+    @apply first-of-type:rounded-full;
+  }
+}
