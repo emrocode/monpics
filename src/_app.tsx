@@ -2,7 +2,7 @@ import "./styles/globals.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { MonPicsProvider } from "./contexts";
+import { MonPicsProvider, EditorProvider } from "./contexts";
 import { Layout } from "./components";
 import { Home } from "./pages";
 
@@ -22,7 +22,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("app")!).render(
   <React.StrictMode>
     <MonPicsProvider>
-      <RouterProvider router={router} />
+      <EditorProvider>
+        <RouterProvider router={router} />
+      </EditorProvider>
     </MonPicsProvider>
   </React.StrictMode>,
 );

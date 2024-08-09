@@ -32,5 +32,11 @@ export const initialState = {
   option: {
     position: "bottom",
     color: "#ffffff",
+    shadow: false,
+    font: {
+      size: 56,
+      weight: 700,
+      family: "Open Sans",
+    },
   },
 };

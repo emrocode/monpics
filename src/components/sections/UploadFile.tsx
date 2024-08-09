@@ -7,9 +7,9 @@ import css from "../../styles/Upload.module.css";
 
 const Upload: React.FC = () => {
   const { file, handleClick, handleChange } = useMonPics();
-  const onDrop = handleChange;
+
   const { getRootProps, getInputProps, open, isDragActive } = useDropzone({
-    onDrop,
+    onDrop: handleChange,
     accept: {
       "image/*": [".jpeg", ".png", ".gif", ".svg", ".webp"],
     },

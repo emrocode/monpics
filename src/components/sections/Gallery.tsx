@@ -1,10 +1,11 @@
 import Card from "../Card";
 import { galleryItems } from "../../data";
+import css from "../../styles/Gallery.module.css";
 import type { GalleryProps } from "../../types";
 
 const Gallery: React.FC<GalleryProps> = ({ handleClick }) => {
   return (
-    <div className="grid w-full grid-cols-custom gap-2">
+    <div className={css.wrapper}>
       {galleryItems.map(({ id, image, imageFullSize, author }) => (
         <Card
           image={image}

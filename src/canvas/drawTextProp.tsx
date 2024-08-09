@@ -37,13 +37,12 @@ export default function drawTextProp(
         : y - totalHeight;
 
   // Text styles
+  // TODO: Customize shadow
   const shadowBase = 12;
+  const fontFallback = "Arial, system-ui, -apple-system, sans-serif";
 
-  // TODO: Make the text customizable
   ctx.fillStyle = file.option.color;
-  // prettier-ignore
-  ctx.font =
-    "bold 56pt \"Open Sans\", Arial, system-ui, -apple-system, sans-serif";
+  ctx.font = `${file.option.font.weight} ${file.option.font.size}pt ${file.option.font.family}, ${fontFallback}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 

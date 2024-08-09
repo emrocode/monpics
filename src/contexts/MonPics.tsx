@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useRef } from "react";
+import { createContext, useState, useEffect, useRef, useCallback } from "react";
 import { drawImageProp, drawTextProp } from "../canvas";
 import { initialState } from "../data";
 import type { MonPicsContextProps, FileProps } from "../types";
@@ -13,7 +13,7 @@ export const MonPicsProvider: React.FC<{ children: React.ReactNode }> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [file, setFile] = useState<FileProps>(initialState);
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const name = e.currentTarget.dataset?.name || "";
     const value = e.currentTarget.dataset.value;
     // console.log(name, value);
@@ -21,9 +21,9 @@ export const MonPicsProvider: React.FC<{ children: React.ReactNode }> = ({
       setFile((prev) => {
         return { ...prev, [name]: value };
       });
-  };
+  }, []);
 
-  const handleChange = (acceptedFiles: File[]) => {
+  const handleChange = useCallback((acceptedFiles: File[]) => {
     const selectedFile = acceptedFiles[0];
     if (selectedFile && selectedFile.type.startsWith("image/")) {
       const value = URL.createObjectURL(selectedFile);
@@ -34,16 +34,19 @@ export const MonPicsProvider: React.FC<{ children: React.ReactNode }> = ({
         };
       });
     }
-  };
+  }, []);
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.name;
-    const txt = e.target.value;
+  const handleTextChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const name = e.target.name;
+      const txt = e.target.value;
 
-    setFile((prev) => {
-      return { ...prev, [name]: txt };
-    });
-  };
+      setFile((prev) => {
+        return { ...prev, [name]: txt };
+      });
+    },
+    [],
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
